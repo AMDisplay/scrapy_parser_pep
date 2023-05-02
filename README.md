@@ -19,3 +19,9 @@ pip install -r requirements.txt
 ### Запуск парсинга
 
 scrapy crawl pep
+
+### Хранение данных
+
+Данные записываются и хранятся в двух таблицах формата csv
+Таблица pep имеет атрибуты number,name,status - номер Pep, название, статус
+Таблица status_summary имеет атрибуты status, count - Статус и количество pep

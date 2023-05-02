@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+from collections import defaultdict
 
 from pep_parse.settings import BASE_DIR
 
@@ -7,11 +8,11 @@ from pep_parse.settings import BASE_DIR
 class PepParsePipeline:
 
     def open_spider(self, spider):
-        self.status_count = {}
+        self.status_count = defaultdict(int)
 
     def process_item(self, item, spider):
         status = item['status']
-        self.status_count[status] = self.status_count.get(status, 0) + 1
+        self.status_count[status] +=1
         return item
 
     def close_spider(self, spider):
